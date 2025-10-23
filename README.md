@@ -58,6 +58,17 @@ All three jobs run simultaneously on **Ubuntu**, **Windows**, and **macOS**.
 | Ensuring proper YAML indentation | Followed 2-space indentation to avoid syntax errors |
 
 ---
+Screenshots provided:
 
 - Each workflow’s YAML content
-- Actio
+- Actions tab showing all runs
+- Workflow 1: Job dependency graph and logs
+- Workflow 2: Secrets page (names only) and environment output
+- Workflow 3: All three OS jobs running in parallel
+- Logs proving successful execution
+
+---
+
+### **Conclusion**
+
+This lab demonstrates core CI concepts in GitHub Actions including job dependencies, secure secret handling, environment variable scopes, and parallel multi-OS testing. The workflows fully executed as expected and support a clean CI pipeline design.
