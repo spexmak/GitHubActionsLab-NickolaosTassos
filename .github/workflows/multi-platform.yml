@@ -1,0 +1,41 @@
+name: Multi-Platform - Nickolaos Tassos
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ubuntu-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: OS info (Ubuntu)
+        run: uname -a
+      - name: Create and show file
+        run: |
+          echo "Hello from Ubuntu" > hello.txt
+          cat hello.txt
+
+  windows-job:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: OS info (Windows)
+        run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+        shell: cmd
+      - name: Create and show file
+        run: |
+          echo Hello from Windows > hello.txt
+          type hello.txt
+        shell: cmd
+
+  macos-job:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: OS info (macOS)
+        run: uname -a
+      - name: Create and show file
+        run: |
+          echo "Hello from macOS" > hello.txt
+          cat hello.txt
