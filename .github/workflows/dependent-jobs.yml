@@ -1,0 +1,34 @@
+name: Dependent Jobs - Nickolaos Tassos
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Building application...
+        run: echo "Building application..."
+      - name: Simulate build
+        run: sleep 2
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Running tests...
+        run: echo "Running tests..."
+      - name: Simulate testing
+        run: sleep 2
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Deploying application...
+        run: echo "Deploying application..."
+      - name: Simulate deploy
+        run: sleep 2
